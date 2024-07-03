@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="testimonial-container">
+        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" alt="user profile">
+        <p class="text">With orange, communication between all of us is far more efficient. A game changer.</p>
+        <h4 class="username">Nicole</h4>
+    </div>
+
+    <script>
+        const testimonials = [
+            {
+                name : "Nicole",
+                imgSrc : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
+                text : "With orange, communication between all of us is far more efficient. A game changer."
+            },
+            {
+                name : "Michi",
+                imgSrc : "https://plus.unsplash.com/premium_photo-1683121366070-5ceb7e007a97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
+                text : "Everyone’s on the same page. Many of our people are not very organized naturally, so orange is a godsend!"
+            },
+            {
+                name : "Pockey",
+                imgSrc : "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
+                text : "Would definitely recommend banana and will definitely be ordering again."
+            }
+        ]
+        const imgEl = document.querySelector("img");
+        const textEl = document.querySelector(".text");
+        const usernameEl = document.querySelector(".username");
+        let i = 0;
+        function updateTestimonial(){
+            const{name, imgSrc, text} = testimonials[i];
+            imgEl.src = imgSrc;
+            textEl.innerHTML = text;
+            usernameEl.innerHTML = name;
+            i++;
+            if(i === testimonials.length){
+                i = 0;
+            }
+            setTimeout(() => {
+                updateTestimonial();
+            }, 3000);
+        }
+        updateTestimonial();
+
+    </script>
+</body>
+</html>
